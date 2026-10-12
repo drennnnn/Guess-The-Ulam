@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Guest the Ulam",
+  "short_name": "Guest Ulam",
+  "description": "Discover and explore Filipino ulam dishes.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2e7d32",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./images/icon.jpg",
+      "sizes": "447x447",
+      "type": "image/jpeg"
+    }
+  ]
+}
