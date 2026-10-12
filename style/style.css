@@ -1,0 +1,165 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fcf8f5;
+}
+
+.container{
+    margin: auto;
+    text-align: center;
+    width: 40%;
+    padding: 10px;
+}
+
+.panel{
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.151);
+    padding: 30px;
+}
+
+.icon{
+    width: 100px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.chosen-dish{
+    border: 1px dashed #f6960c;
+    background-color: #f6950c05;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.choose-dish{
+    display: block;
+    width: 100%;
+    background-color: #f6960c;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.choose-dish:active{
+    transform: scale(.99, .95);
+}
+
+.chosen-dish p{
+    color: #f6960c;
+    font-size: 13px;
+}
+
+.add-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+[name="dish"]{
+    height: 40px;
+    width: 83%;
+    border: none;
+    font-size: 12px;
+    padding-left: 15px;
+    color: gray;
+    font-weight: bold;
+}
+
+[name="dish"]:focus{
+    border: none;
+    outline: none;
+}
+
+.add-dish{
+    background-color: black;
+    color: white;
+    width: 14%;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.add-dish:active{
+    transform: scale(.99, .95);
+}
+.p-1{
+    padding: 8px !important;
+}
+
+.history-title{
+    color: gray;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-dish{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.clear-dish:active{
+    transform: scale(.99, .95);
+}
+
+.dish-item{
+    display: flex;
+    justify-content: space-between;
+}
+.dish-edit{
+    margin: 2px;
+    color: gray;
+    padding: 10px 3px 5px 8px;
+    border-radius: 10px;
+}
+
+.dish-delete{
+    margin: 2px;
+    color: gray;
+    padding: 10px 5px 5px 6px;
+    border-radius: 10px;
+}
+
+.dish-edit:active, .dish-delete:active{
+    background-color: rgba(128, 128, 128, 0.048);
+}
+
+.dish-name{
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+}
+
+@media (max-width: 1200px) {
+    .container{
+        width: 50%;
+    }
+}
+@media (max-width: 992px) {
+    .container{
+        width: 60%;
+    }
+}
+@media (max-width: 768px) {
+    .container{
+        width: 70%;
+    }
+}
+@media (max-width: 600px) {
+    .container{
+        width: 100%;
+    }
+
+    [name="dish"]{
+        width: 78%;
+    }
+
+    .add-dish{
+        width: 20%;
+    }
+}
