@@ -1,24 +1,32 @@
 {
-  "id": "./",
-  "name": "Guest the Ulam",
+  "id": "./index.html",
+  "name": "Guess The Ulam",
   "short_name": "Guest Ulam",
-  "description": "Discover and explore Filipino ulam dishes.",
+  "description": "Pick a Filipino ulam and keep your dish list available offline.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#464545",
+  "background_color": "#fcf8f5",
+  "theme_color": "#f6960c",
   "orientation": "portrait",
   "icons": [
     {
       "src": "./images/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "./images/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

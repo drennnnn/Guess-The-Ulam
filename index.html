@@ -2,70 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6960c">
+    <meta name="description" content="Pick a Filipino ulam and keep your dish list available offline.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Guess The Ulam">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Guess The Ulam</title>
-    <script src="js/javascript.js"></script>
     <link rel="manifest" href="./manifest.json">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="icon" href="images/icon-no-background.png">
+    <link rel="apple-touch-icon" href="./images/icon-192.png">
+    <link rel="icon" href="./images/icon-no-background.png">
+    <style>
+        body{margin:0;background:#fcf8f5;color:#292522;font-family:Arial,Helvetica,sans-serif}
+        .container{width:min(100% - 2rem,40rem);margin:auto;padding:1rem 0;text-align:center}
+    </style>
+    <link rel="preload" href="./style/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./style/style.css"></noscript>
+    <script type="module" src="./js/javascript.js"></script>
 </head>
 <body>
     <div class="container">
-        <img src="images/icon-no-background.png" alt="icon" class="icon">
-        <h2><b>Bhabe ano ulam?</b></h2>
-        <div class="panel">
-            <div class="chosen-dish">
+        <img src="./images/icon-no-background.png" alt="" class="icon" width="100" height="100" decoding="async">
+        <h1>Bhabe ano ulam?</h1>
+
+        <p class="offline-status" role="status" aria-live="polite" hidden></p>
+        <p class="notice" role="status" aria-live="polite" hidden></p>
+        <div class="update-notice" role="status" hidden>
+            <span>A new version is ready.</span>
+            <button id="reload-button" type="button">Refresh</button>
+        </div>
+
+        <section class="panel" aria-label="Pick a dish">
+            <div class="chosen-dish" aria-live="polite">
                 <p>TAP BUTTON TO PICK</p>
-                <h3>Ready to Choose!</h3>
+                <h2>Ready to Choose!</h2>
             </div>
-            
-            <br>
+            <button class="choose-dish" type="button">Pick Random Dish</button>
+        </section>
 
-            <a class="choose-dish">Pick Random Dish</a>
-        </div>
-
-        <br>
-
-        <div class="panel p-1">
-            <div class="add-container">
-                <input type="text" name="dish" placeholder="Dito mo type ung ulam">
-                <a class="add-dish">Add</a>
-            </div>
-        </div>
-
-        <br>
+        <section class="panel p-1 add-panel" aria-label="Add a dish">
+            <label class="sr-only" for="dish-input">Dish name</label>
+            <input id="dish-input" type="text" name="dish" placeholder="Dito mo type ung ulam" maxlength="100" autocomplete="off">
+            <button class="add-dish" type="button">Add</button>
+        </section>
 
         <div class="history-title">
-            <span><b>YOUR DISH LIST(<span class="total-dishes">0</span>)</b></span>
-            <a class="clear-dish">Clear All</a>
+            <h2>YOUR DISH LIST (<span class="total-dishes">0</span>)</h2>
+            <button class="clear-dish" type="button">Clear All</button>
         </div>
 
-        <div class="dish-list">
-            <div class="panel dish-item">
-                <div class="dish-name">Pizza</div>
+        <div class="dish-list" aria-live="polite" aria-busy="true"></div>
 
-                <div class="dish-button">
-                    <a class="dish-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                        </svg>
-                    </a>
-                    <a class="dish-delete">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="3 6 5 6 21 6"/>
-                            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
-                            <path d="M10 11v6M14 11v6"/>
-                            <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <button id="install-button" class="install-button" type="button" hidden>Install app</button>
     </div>
+
+    <dialog id="edit-dialog" aria-labelledby="edit-title">
+        <form id="edit-form">
+            <h2 id="edit-title">Edit dish</h2>
+            <label for="edit-dish">Dish name</label>
+            <input id="edit-dish" name="dish" type="text" maxlength="100" required>
+            <div class="dialog-actions">
+                <button type="button" class="cancel-edit">Cancel</button>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
